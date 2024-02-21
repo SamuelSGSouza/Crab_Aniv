@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Owner css -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="popup/popup.css">
+    
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="background-image"><img src="img/background-2.jpg" alt="background image"></div>
+    <div class="container">
+
+        <!-- POPUPS -->
+        <div class="popup_bar popup_bar_left"></div>
+        <div class="popup_bar popup_bar_right"></div>
+        
+
+        <div class="popup_main" id="popup_quests">
+            <div class="popup_main_wrap">
+                <button onclick="closePopup()" class="close-btn">X</button>
+                <h2>QUESTS</h2>
+                <div id="userQuestsWrap">
+                    
+
+                </div>
+               
+            </div>
+            
+        </div><!-- /Popup Main-->
+
+        <div class="popup_main" id="popup_start">
+            <div class="popup_main_wrap">
+                <h2 class="text-center">BEM VINDO!</h2>
+                <p class="mt-2">
+                    Essa é a sua primeira vez aqui, certo? <br>
+                    Vamos começar criando seu personagem!
+                </p>
+                <p class="mt-3">
+                    Primeiro, Insira seu email:  <br>
+                    <input type="text" id="email" onchange="setCookie('userEmail', this.value, 365)"><br>
+                    <span class="small">(caso ele já esteja cadastrado, iremos recuperar seu personagem)</span>
+                </p>
+                <div id="create_personage">
+                    <p class="mt-3">
+                        Vamos começar pelo básico, escolha um nome: <br>
+                        <input type="text" id="name" onchange="setCookie('userName', this.value, 365)">
+                    </p>
+                    <p class="mt-3">
+                        Agora defina seus pontos: <br>
+                        <div class="points">
+                            <div class="left">
+                                <p>FOR: <span class="pontos_FOR">00</span> <button class="plus-button" onclick="addPontos('FOR')">+</button></p>
+                                <p>INT: <span class="pontos_INT">00</span> <button class="plus-button" onclick="addPontos('INT')">+</button></p>
+                                <p>CAR: <span class="pontos_CAR">00</span> <button class="plus-button" onclick="addPontos('CAR')">+</button></p>
+                            </div>
+                            <div class="right">
+                                <p>SAB: <span class="pontos_SAB">00</span> <button class="plus-button" onclick="addPontos('SAB')">+</button></p>
+                                <p>DES: <span class="pontos_DES">00</span> <button class="plus-button" onclick="addPontos('DES')">+</button></p>
+                                <p>CON: <span class="pontos_CON">00</span> <button class="plus-button" onclick="addPontos('CON')">+</button></p>
+                            </div>
+                        </div><br>
+                        <div class="small text-center">Pontos Restantes: <span class="pontos_restantes">0</span></div>
+                    </p>
+                    <button class="btn-finalizar" onclick="location.reload();">Finalizar</button>
+                </div>
+                                
+            </div>
+            
+        </div><!-- /Popup Main-->
+
+        <div class="popup_main" id="popup_new_quest">
+            <div class="popup_main_wrap">
+                <h2 class="text-center" >NOVA MISSÃO REQUISITADA!</h2>
+                <p class="mt-2" id="titulo_missao">ENCONTRE A FLOR</p>
+                <div class="hr-quest"></div>
+                <p id="historia_missao">
+                    Um morador local foi infectado por uma doença misteriosa, e a 
+                    única cura é uma flor rara que cresce em um local próximo. <br>
+                </p>
+                <p class="mt-3">OBJETIVO</p>
+                <div class="hr-quest"></div>
+                <p id="objetivo_missao">
+                    Você deve encontrar uma flor que nunca tenha visto antes e possa
+                    ser usada em tratamentos medicinais e trazê-la para casa.
+                </p>
+                <p class="mt-3">RECOMPENSAS</p>
+                <div class="hr-quest"></div>
+                <div id="recompensas_wrap">
+                    <p class="recompensa_missao">100 XP</p>
+                    <p class="recompensa_missao">+1 SAB</p>
+                    <p class="recompensa_missao">+1 INT</p>
+                    <p class="recompensa_missao">TÍTULO: Aprensentador de Flores</p>
+                </div>
+                
+                <button class="btn-aceitar" onclick="aceitarQuest()">Aceitar</button>
+                <button class="btn-recusar" onclick="rejeitarQuest()">Recusar</button>
+                                
+            </div>
+            
+        </div><!-- /Popup Main-->
+
+
+
+        <div class="status">
+           <h1>STATUS</h1>
+        </div>
+        
+
+        <div class="body">
+            <div class="header">
+                <div class="row mt-2">
+                    <div class="col-70">
+                        <p class="nova_missao_alert" onclick="chamaPopup('popup_new_quest');">Nova Missão</p>
+                        
+                    </div>
+                     <div class="col-30">
+                        <button class="btn-quests" onclick="chamaPopup('popup_quests')">i</button>
+                     </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-70">Nome: <span class="text-underline" id="userName"></span></div>
+                    <div class="col-30">Level: <span class="text-underline" id="userLevel">1</span></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-70">Título: <span class="text-underline" id="userTitulo">Nenhum</span></div>
+                    <div class="col-30">XP: <span class="text-underline"><span id="xpUsuario">0</span>/<span id="xpProximoNivel">100</span></span></div>
+                </div>
+            </div>
+            
+            <div class="hr"></div>
+
+            <div class="points">
+                <div class="left">
+                    <p>FOR: <span class="pontos_FOR">00</span> <button class="plus-button" onclick="addPontos('FOR')">+</button></p>
+                    <p>INT: <span class="pontos_INT">00</span> <button class="plus-button" onclick="addPontos('INT')">+</button></p>
+                    <p>CAR: <span class="pontos_CAR">00</span> <button class="plus-button" onclick="addPontos('CAR')">+</button></p>
+                </div>
+                <div class="right">
+                    <p>SAB: <span class="pontos_SAB">00</span> <button class="plus-button" onclick="addPontos('SAB')">+</button></p>
+                    <p>DES: <span class="pontos_DES">00</span> <button class="plus-button" onclick="addPontos('DES')">+</button></p>
+                    <p>CON: <span class="pontos_CON">00</span> <button class="plus-button" onclick="addPontos('CON')">+</button></p>
+                </div>
+            </div><br>
+            <div class="small text-center">Pontos Restantes: <span class="pontos_restantes">0</span></div>
+        
+
+            <div class="hr"></div>
+            <div class="skills">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:80%"></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="mt-2">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="mt-2">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // localStorage.clear();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="cookies.js"></script>
+    <script src="pontuacao.js"></script>
+    <script src="popup.js"></script>
+    <script src="quests.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

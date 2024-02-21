@@ -1,0 +1,150 @@
+.popup_bar{
+    height:50vh;
+    width: 4px;
+    background-color: rgb(0, 0, 87);
+    position: fixed;
+    border-radius: 30%;
+    z-index: 3;
+    box-shadow: 0 0 10px 5px rgb(196, 196, 0);
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    display: none;
+}
+.popup_bar_left{
+    animation-name: barra_left;
+    left: -5vw;
+}
+
+.popup_bar_right{
+    animation-name: barra_right;
+    left: 105vw;
+}
+/* Animação para a barra ir de onde está até o centro da tela*/
+@keyframes barra_left {
+    0% {
+        left: 5vw;
+        top:25vh;
+    }
+    25% {
+        left: 50vw;
+        
+    }
+    50% {
+        left: 49.5vw;
+        top:49.5vh;
+        height:2px;
+        width: 1vw
+    }
+    75% {
+        top:49vh;
+        height:2px;
+        left: 5vw;
+        width: 90vw
+    }
+    100% {
+        top:10vh;
+        height:2px;
+        left: 5vw;
+        width: 90vw
+    }
+}
+/* Animação para a barra ir de onde está até o centro da tela*/
+@keyframes barra_right {
+    0% {
+        left: 95vw;
+        top:25vh;
+    }
+    25% {
+        left: 50vw;
+        
+    }
+    50% {
+        left: 50.5vw;
+        top:49.5vh;
+        height:2px;
+        width: 1vw
+    }
+    75% {
+        top:49vh;
+        height:2px;
+        left: 5vw;
+        width: 90vw
+    }
+    100% {
+        top:90vh;
+        height:2px;
+        left: 5vw;
+        width: 90vw
+    }
+}
+.popup_main{
+    position:fixed;
+    top: 10vh;
+    left: 5vw;
+    width: 90vw;
+    height: 0vh;
+    background-color: rgba(0, 0, 0,0.9);
+    border-radius: 15px;
+    z-index: 4;
+    animation-name: popup_main;
+    animation-duration: 0.25s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards!important;
+    animation-delay: 0.75s;
+    display: none;
+    overflow: hidden;
+}
+.popup_main .popup_main_wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding:10%;
+    overflow-y: auto;
+    padding-bottom: 20%
+}
+.close-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid rgb(196, 196, 0);
+    background-color: transparent;
+    color: rgb(196, 196, 0);
+    font-size: 15px;
+    box-shadow: 0 0 10px 5px rgb(196, 196, 0);
+    z-index: 5;
+    cursor: pointer;
+}
+@keyframes popup_main {
+    0% {
+        top: 50vh;
+        height: 0vh;
+    }
+    100% {
+        top: 10vh;
+        height: 80vh;
+        outline: 2px solid rgb(196, 196, 0);
+        box-shadow: 0 0 10px 5px rgb(196, 196, 0);
+    }
+}
+.hr-quest{
+    width: 100%;
+    height: 2px;
+    margin-bottom: 5%;
+    background-color: rgb(196, 196, 0);
+    
+}
+input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+}
+.diarias{
+    width: 100%;
+}
+.row{
+    display: flex;
+    margin-bottom: 2%;
+    width: 100%;
+}

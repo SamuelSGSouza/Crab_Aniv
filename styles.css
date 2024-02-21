@@ -1,0 +1,231 @@
+*{
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+body{
+    width: 100vw;
+    background-color: black;
+    
+    
+}
+#background-image{
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    z-index: -2;
+    top: 0;
+    left: 0;
+}
+#background-image img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+.container{
+    width:100vw!important;
+    color:white
+}
+.status{
+    border-top: 2px solid rgb(0, 0, 87);
+    border-bottom: 2px solid rgb(0, 0, 87);
+    width:90%;
+    height:100px;
+    margin-left:5%;
+    margin-top:10%;
+    background: linear-gradient( #3f87a6, transparent, #3f87a6);
+    text-align: center;
+}
+.status h1{
+    background-color: transparent;
+    margin-top: 30px;
+}
+
+.btn-quests{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid rgb(196, 196, 0);
+    background-color: transparent;
+    color: rgb(196, 196, 0);
+    font-size: 15px;
+    box-shadow: 0 0 10px 5px rgb(196, 196, 0);
+    display: block;
+    margin-left: auto;
+}
+
+.body{
+    height:auto;
+    width:90%;
+    margin-left: 5%;
+}
+.row{
+    display:flex;
+}
+.col-70{
+    width:70%
+}
+.col-30{
+    width:30%
+}
+.col-25{
+    width:25%
+}
+.col-20{
+    width:20%
+}
+.col-10{
+    width:10%
+}
+.col-5{
+    width:5%
+}
+.mt-1{
+    margin-top:0.5rem!important
+}
+.mt-2{
+    margin-top:1rem!important
+}
+.mt-3{
+    margin-top:1.5rem!important
+}
+.mt-4{
+    margin-top:2rem!important
+}
+.text-center{
+    text-align: center;
+}
+.small{
+    font-size: 12px;
+}
+.text-underline{
+    text-decoration: underline;
+}
+.hr{
+    height: 2px;
+    background-color: white;
+    width:90%;
+    margin-left:5%;
+    margin-top:10%;
+    margin-bottom: 10%;
+}
+.points{
+    width:80%;
+    margin-left:10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.left, .right{
+    text-align: right;
+    font-size: 16px;
+}
+.plus-button{
+    width:17px;
+    border-radius: 3%;
+    color: white;
+    font-size: 12px;
+    text-align: center!important;
+    display: none;
+}
+#create_personage{
+    width:100%;
+    margin-top:20px;
+    display: none;
+}
+
+/* inputs */
+input[type="text"], input[type="number"], input[type="date"], input[type="email"], input[type="password"]{
+    width: 100%;
+    height: 30px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: white!important;
+}
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="password"]:focus{
+    background-color: #3f87a6!important;
+    border: 1px solid #3f87a6!important;
+    outline: none!important;
+}
+
+/* buttons */
+.btn-finalizar{
+    width: 100%;
+    background-color: #3f87a6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-aceitar{
+    width: 100%;
+    background-color: #50a63f;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-recusar{
+    width: 100%;
+    background-color: #a63f3f;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-concluir{
+    width: 45%;
+    background-color: #50a63f;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.space{
+    width: 10px;
+    display: inline-block;
+}
+.btn-desistir{
+    width: 45%;
+    background-color: #a63f3f;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+.nova_missao_alert{
+    animation: neon_alert 2s infinite;
+    cursor: pointer;
+    display:none
+}
+@keyframes neon_alert{
+    0%{
+        text-shadow: 0px 0px 0px rgb(196, 196, 0);
+    }
+    50%{
+        text-shadow: 0px 0px 25px rgb(196, 196, 0)
+    }
+    100%{
+        text-shadow: 0px 0px 0px rgb(196, 196, 0);
+    }
+}
