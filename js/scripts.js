@@ -64,7 +64,7 @@ function startSystem(){
         $("#xpProximoNivel").text(getCookie("xpProximoNivel") || "100");
 
 
-        criaQuest("COLHA PLANTAS", "Vá até a floresta e colha 10 plantas", "Colher 10 plantas", ["50 XP", "+1 SAB" ]);
+        criaQuest();
 
         //atualizando quests
         atualizaUserQuests();

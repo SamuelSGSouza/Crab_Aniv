@@ -1,3 +1,48 @@
+const quests = [
+    //quests do level 1 ao 10
+    [
+            {
+                "titulo": "COLHA PLANTAS",
+                "historia": "Um alquimista precisa de flores para fazer suas poções, então você precisa coletar flores que nunca viu na vida.",
+                "objetivo": "Colha 5 flores que você nunca viu na vida",
+                "recompensas": ["50 XP", "+1 INT", "TITULO: Aprensentador de Flores"]
+            },
+            {
+                "titulo": "ENCONTRE O ANIMAL PERDIDO",
+                "historia": "Um fazendeiro perdeu seu animal de estimação e está desesperado. Ajude-o a encontrar o animal.",
+                "objetivo": "Procure algum cartaz de animal perdido e tente encontrar o animal",
+                "recompensas": ["100 XP", "+1 CON", "TITULO: Detetive de Animais"]
+            },
+            {
+                "titulo": "AVISE SOBRE A INVASÃO",
+                "historia": "A cidade está prestes a ser invadida por um exército inimigo e você precisa provar isso.",
+                "objetivo": "Vá ao ponto mais alto da região e tire uma foto dos 4 pontos cardeais.", 
+                "recompensas": ["150 XP", "+2 CON", "+2 FOR"]
+            },
+            {
+                "titulo": "IMPEÇA O RITUAL",
+                "historia": "Uma marca de ritual foi deixada em 5 lugares diferentes e você precisa desfazer o ritual.",
+                "objetivo": "Vá até os 5 lugares mais conhecidos da região e deixe uma prova da sua presença.",
+                "recompensas": ["200 XP", "+2 INT", "+2 SAB"]
+            },
+            {
+                "titulo": "REMOVA A MALDIÇÃO",
+                "historia": "Você foi amaldiçoado por um feiticeiro e precisa encontrar e remover a maldição.",
+                "objetivo": "Medite por 10 minutos num lugar calmo e tranquilo.",
+                "recompensas": ["250 XP", "+3 INT", "+3 SAB"]
+            }
+        ],
+
+
+    //quests do level 11 ao 20
+
+]
+
+
+
+
+
+
 function adicionaQuests(titulo, historia,objetivo, recompensas) {
     //se uma das variáveis for vazia ou null, retorna
     if (titulo == "" || titulo == "undefined" || titulo == null || historia == "" || historia == "undefined" || historia == null || objetivo == "" || objetivo == "undefined" || objetivo == null || recompensas == "" || recompensas == "undefined" || recompensas == null){
@@ -22,7 +67,23 @@ function adicionaQuests(titulo, historia,objetivo, recompensas) {
     setCookie("questsAdicionadas", JSON.stringify(quests), 365);
 }
 
-function criaQuest(titulo, historia,objetivo, recompensas) {
+function criaQuest() {
+    var userLevel = parseInt(getCookie("userLevel")) || 1;
+    var titulo = "";
+    var historia = "";
+    var objetivo = "";
+    var recompensas = [];
+    //sorteando uma quest do level do usuário
+    if (userLevel < 10){
+        var questsLevel = quests[0];
+    }
+    var quest = questsLevel[Math.floor(Math.random() * questsLevel.length)];
+    console.log(quest);
+    titulo = quest.titulo;
+    historia = quest.historia;
+    objetivo = quest.objetivo;
+    recompensas = quest.recompensas;
+
     $(".nova_missao_alert").css("display", "block");
     $("#titulo_missao").text(titulo);
     $("#historia_missao").text(historia);
@@ -214,14 +275,17 @@ function concluirQuest(index){
     distribuiRecompensas(quests[index].recompensas);
     quests.splice(index, 1);
     setCookie("questsAdicionadas", JSON.stringify(quests), 365);
+    criaQuest()
     atualizaUserQuests();
 }
+
 function desistirQuest(index){
     var questsAdicionadas = getCookie("questsAdicionadas");
     var quests = JSON.parse(questsAdicionadas);
     quests.splice(index, 1);
     setCookie("questsAdicionadas", JSON.stringify(quests), 365);
     atualizaUserQuests();
+    criaQuest()
 }
 
 function aceitarQuest(){
@@ -236,9 +300,12 @@ function aceitarQuest(){
         recompensas.push($(this).text());
     });    
     adicionaQuests(titulo, historia,objetivo, recompensas);
+    criaQuest()
     atualizaUserQuests();
 }
+
 function rejeitarQuest(){
     closePopup();
     $(".nova_missao_alert").css("display", "none");
+    criaQuest()
 }
