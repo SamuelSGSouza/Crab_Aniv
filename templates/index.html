@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyfe Leveling</title>
+
+    <!-- Owner css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    
+    <!--favicon-->
+    <link rel="icon" href="img/logo.png" type="{{ url_for('static', filename='image/png') }}" sizes="16x16">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="background-image"><img src="{{ url_for('static', filename='img/background-2.jpg') }}" alt="background image"></div>
+    <div class="container">
+
+        <!-- POPUPS -->
+        <div class="popup_bar popup_bar_left"></div>
+        <div class="popup_bar popup_bar_right"></div>
+        
+
+        <div class="popup_main" id="popup_quests">
+            <div class="popup_main_wrap">
+                <button onclick="closePopup()" class="close-btn">X</button>
+                <h2 class="text-center">BEM VINDO!</h2>
+                <p class="mt-2">
+                    Tempo restante para início do jogo: <span id="tempo_restante">10</span> segundos 
+                </p>
+                <p class="mt-3" id="spinner">
+                    <!-- criando um spinner -->
+                    <div class="loader"></div>
+                    
+                </p>
+               
+            </div>
+            
+        </div><!-- /Popup Main-->
+
+
+        <div class="popup_main" id="popup_new_quest">
+            <div class="popup_main_wrap">
+                <h2 class="text-center">BEM VINDO!</h2>
+                <p class="mt-2">
+                    Tempo restante para início do jogo: <span id="tempo_restante">10</span> segundos 
+                </p>
+                <p class="mt-3" id="spinner">
+                    <!-- criando um spinner -->
+                    <div class="loader"></div>
+                    
+                </p>
+                                
+            </div>
+            
+        </div><!-- /Popup Main-->
+
+
+
+        <div class="status">
+           <h1>GINCANA</h1>
+        </div>
+        
+
+        <div class="body">
+            <div class="header">
+                <div class="row mt-2">
+                    <div class="col-70">
+                        <p class="nova_missao_alert" onclick="chamaPopup('popup_new_quest');">Nova Missão</p>
+                        
+                    </div>
+                     <div class="col-30">
+                        <button class="btn-quests" onclick="chamaPopup('popup_quests')">i</button>
+                     </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-60">Data: <span class="text-underline">31 de Agosto &nbsp;</span></div>
+                    <div class="col-30"><span class="text-underline"> - 19:00h</span></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-70">Local: <span class="text-underline" id="userTitulo">?????????</span></div>
+                </div>
+            </div>
+            
+            <div class="hr"></div>
+
+            <div class="points">
+                <div class="left">
+                    <p><img class="img-icon" src="{{ url_for('static', filename='icons/prato.png') }}"></p>
+                    <p><img class="img-icon" src="{{ url_for('static', filename='icons/dardo.png') }}"></p>
+                </div>
+                <div class="right">
+                    <p><img class="img-icon" src="{{ url_for('static', filename='icons/botao.png') }}"></p>
+                </div>
+            </div><br>
+        
+
+            <div class="hr"></div>
+            <div class="skills">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:80%"></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="mt-2">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="mt-2">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // localStorage.clear();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/cookies.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/pontuacao.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/quests.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
