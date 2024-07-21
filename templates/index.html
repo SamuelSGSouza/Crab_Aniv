@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyfe Leveling</title>
+    <title>CRAB GAME</title>
 
     <!-- Owner css -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/popup.css') }}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
     
     <!--favicon-->
-    <link rel="icon" href="img/logo.png" type="{{ url_for('static', filename='image/png') }}" sizes="16x16">
+    <link rel="icon" href="{% static 'img/logo.png' %}" sizes="16x16">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="background-image"><img src="{{ url_for('static', filename='img/background-2.jpg') }}" alt="background image"></div>
+    <div id="background-image"><img src="{% static 'img/background-2.jpg' %}" alt="background image"></div>
     <div class="container">
 
         <!-- POPUPS -->
@@ -63,7 +64,7 @@
 
 
         <div class="status">
-           <h1>GINCANA</h1>
+           <h1>- CRAB GAME -</h1>
         </div>
         
 
@@ -91,11 +92,11 @@
 
             <div class="points">
                 <div class="left">
-                    <p><img class="img-icon" src="{{ url_for('static', filename='icons/prato.png') }}"></p>
-                    <p><img class="img-icon" src="{{ url_for('static', filename='icons/dardo.png') }}"></p>
+                    <p><img class="img-icon" src="{% static 'icons/chao_vidro.png' %}"></p>
+                    <p><img class="img-icon" src="{% static 'icons/dardo.png' %}"></p>
                 </div>
                 <div class="right">
-                    <p><img class="img-icon" src="{{ url_for('static', filename='icons/botao.png') }}"></p>
+                    <p><img class="img-icon" src="{% static 'icons/botao.png' %}"></p>
                 </div>
             </div><br>
         
@@ -127,10 +128,10 @@
         // localStorage.clear();
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/cookies.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/pontuacao.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/quests.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{% static 'js/cookies.js' %}"></script>
+    <script src="{% static 'js/pontuacao.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
+    <script src="{% static 'js/quests.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
