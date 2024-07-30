@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O JOGO</title>
+    <title>CRAB GAME</title>
 
     <!-- Owner css -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -30,7 +30,7 @@
         <div class="popup_main" id="popup_quests">
             <div class="popup_main_wrap">
                 <button onclick="closePopup()" class="close-btn">X</button>
-                <h2 class="text-center">INFORMAÇÕES!</h2>
+                <h2 class="text-center">BEM VINDO!</h2>
                 <p class="mt-2">
                     Tempo restante para início do jogo: <span id="tempo_restante">10</span> segundos 
                 </p>
@@ -78,26 +78,18 @@
 
 
         <div class="status">
-           <h1>- O JOGO -</h1>
+           <h1>- CRAB GAME -</h1>
         </div>
         
 
         <div class="body">
             <div class="header">
-                <div class="row">
-                    <div class="col-40" id="foto-perfil">
-                        <img src="{% static 'icons/user.png' %}" alt="Foto de perfil" class="img-perfil">
-                        <label for="file-upload" class="custom-file-upload">
-                            ALTERAR
-                        </label>
-                        <input id="file-upload" type="file" />
+                <div class="row mt-2">
+                    <div class="col-70">
+                        <p class="nova_missao_alert" onclick="chamaPopup('popup_new_quest');">Nova Missão</p>
+                        
                     </div>
-                    <div class="col-40 mt-2">
-                        <h2 class="texto-status-ativo">VIVO</h2>
-                        <p class="mt-1"><b>Vidas</b>: <span id="vidas">0</span></p>
-                        <p class="mt-1"><b>Semi-Vidas</b>: <span id="semi-vidas">0</span></p>
-                    </div>
-                    <div class="col-20 mt-2" >
+                     <div class="col-30">
                         <button class="btn-quests" onclick="chamaPopup('popup_quests')">i</button>
                      </div>
                 </div>
